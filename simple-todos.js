@@ -4,7 +4,7 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
     tasks: function () {
-      return Tasks.find({}, { sort: { createdAt : -1 }});
+      return Tasks.find({}, { sort: { updatedAt : -1 } });
     }
   });
 
@@ -15,24 +15,38 @@ if (Meteor.isClient) {
  
       // Get value from form element
       var task_text = event.target.text.value;
-      var date = event.target.date.value;
+      var freq = event.target.freq.value;
 
 
       // Insert a task into the collection
       Tasks.insert({
         text: task_text,
-        int_date: date,
+        frequency: freq,
         createdAt: new Date() // current time
       });
  
       // Clear form
       event.target.text.value = "";
-      event.target.date.value = "";
+      event.target.freq.value = "";
 
-      Tasks.empty();
+    },
 
+    "click .person": function (event) {
+      var id = event.id
+      Tasks.update( this._id, {
+        $set : { updatedAt : new Date() }
+      });
 
+    },
+
+    "click .clear": function () {
+      Tasks.clear()
     }
+
   });
 
+
 }
+
+
+

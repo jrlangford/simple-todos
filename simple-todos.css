@@ -1,3 +1,4 @@
+
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
@@ -123,4 +124,22 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
+}
+
+input[type="submit"] {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  background: #ccc;
+  color: #fff;
+  text-align: center;
+}
+
+.clear {
+  padding: 20px;
+  background: #ccc;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
 }

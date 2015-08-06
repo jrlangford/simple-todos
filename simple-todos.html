@@ -8,19 +8,30 @@
       <h1>Todo List</h1>
       <form class="new-task">
         <input type="text" name="text" placeholder="Type to add new tasks" />
-        <input type="text" name="date" placeholder="date" />
+        <input type="text" name="freq" placeholder="frequency in seconds" />
         <input type="submit" value="Send">
       </form>
     </header>
+
+    <div class="freq">
+      <span>1d</span>
+      <span>1w</span>
+      <span>2w</span>
+      <span>3w</span>
+      <span class="on">1m</span>
+    </div>
  
     <ul>
       {{#each tasks}}
         {{> task}}
       {{/each}}
     </ul>
+
+  <div class="btn clear">clear</div>
   </div>
+
 </body>
  
 <template name="task">
-  <li>{{text}}, {{int_date}}</li>
+  <li class="person" id="{{_id}}">{{text}}, {{frequency}}</li>
 </template>
