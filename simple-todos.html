@@ -8,6 +8,8 @@
       <h1>Todo List</h1>
       <form class="new-task">
         <input type="text" name="text" placeholder="Type to add new tasks" />
+        <input type="text" name="date" placeholder="date" />
+        <input type="submit" value="Send">
       </form>
     </header>
  
@@ -20,9 +22,5 @@
 </body>
  
 <template name="task">
-  <li>{{text}}</li>
-</template>
-
-<template name="trask">
-  <h1>{{text}}</h1>
+  <li>{{text}}, {{int_date}}</li>
 </template>
