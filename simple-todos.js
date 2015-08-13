@@ -4,7 +4,7 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
     tasks: function () {
-      return Tasks.find({}, { sort: { updatedAt : 1 } });
+      return Tasks.find({}, { sort: { createdAt : -1, updatedAt : 1 } });
     }
   });
 
@@ -17,12 +17,10 @@ if (Meteor.isClient) {
       var task_text = event.target.text.value;
       var freq = event.target.freq.value;
 
-
       // Insert a task into the collection
       Tasks.insert({
         text: task_text,
         frequency: freq,
-        updatedAt: new Date(), // current time
         createdAt: new Date() // current time
       });
  
@@ -37,7 +35,6 @@ if (Meteor.isClient) {
       Tasks.update( this._id, {
         $set : { updatedAt : new Date() }
       });
-
     },
 
     "click .clear": function () {
