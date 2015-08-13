@@ -22,7 +22,7 @@ if (Meteor.isClient) {
       Tasks.insert({
         text: task_text,
         frequency: freq,
-        updatedAt: new Date() // current time
+        updatedAt: new Date(), // current time
         createdAt: new Date() // current time
       });
  
